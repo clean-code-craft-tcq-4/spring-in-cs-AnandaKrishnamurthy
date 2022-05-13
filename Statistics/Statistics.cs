@@ -8,11 +8,21 @@ namespace Statistics
     {
         public double average, max,min;
         public double CalculateStatistics(List<double> numbers) {
-            //Implement statistics here
-            average= numbers.Average();
-            max=numbers.Max();
-            min=numbers.Min();
-            return 0.0;
+            const double NaN = double.NaN;
+            if (numbers.Count == NaN)
+            {
+                average = numbers.Average();
+                max = numbers.Max();
+                min = numbers.Min();
+            }
+            else
+            {
+                average = NaN;
+                max = NaN;
+                min = NaN;
+            }
+
+            return 0.0; 
      }
         
      }   
