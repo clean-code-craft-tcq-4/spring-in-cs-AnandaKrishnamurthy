@@ -9,32 +9,24 @@ namespace Statistics
         public double average, max,min;
         public double CalculateStatistics(List<double> numbers) {
              const double NaN = double.NaN;
-            bool NotaaNumber=false;
-            
-
-            for (int i = 0; i < numbers.Count; i++)
-            {
-                if (numbers[i] == NaN)
+           
+                if (numbers.Count() == 0)
                 {
                     average = NaN;
                     max = NaN;
                     min = NaN;
-                    NotaaNumber = true;
-                    break;
-                }
-                else
-                {
-                    NotaaNumber = false;
 
                 }
-            }
-            if (!NotaaNumber)
-            {
-                average = numbers.Average();
-                max = numbers.Max();
-                min = numbers.Min();
-            }
-           return 0.0; 
+              
+                else
+
+                { 
+                    average = numbers.Average();
+                    max = numbers.Max();
+                    min = numbers.Min();
+                }
+
+            return 0.0;
      }
         
      }   
