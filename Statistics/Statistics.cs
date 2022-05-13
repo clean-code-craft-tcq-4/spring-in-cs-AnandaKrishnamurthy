@@ -34,6 +34,7 @@ namespace Statistics
                 max = numbers.Max();
                 min = numbers.Min();
             }
+           return 0.0; 
      }
         
      }   
