@@ -17,29 +17,29 @@ namespace Statistics
         
      }   
         
-         public interface IAlerter
+        public interface IAlerter
     {
        void  Alert();
     }
 
     public class StatsAlerter 
     {
-        IAlerter[] alerters;
+        IAlerter[] Alerters;
         double MaxThresholds;
         public StatsAlerter(double maxThresholds, IAlerter[] alerters)
         {
             MaxThresholds = maxThresholds;
+            Alerters = alerters;
         }
 
 
         public void checkAndAlert(List<double> Allerts)
         {
-            if (Allerts.Max() >MaxThresholds )
+            if (Allerts.Max() >= MaxThresholds)
             {
-                LEDAlert lEDAlert = new LEDAlert();
-                lEDAlert.Alert();
-                EmailAlert emailAlert = new EmailAlert();
-                emailAlert.Alert();
+                Alerters[0].Alert();
+                Alerters[1].Alert();
+
             }
         }
       
@@ -53,7 +53,7 @@ namespace Statistics
                         ledGlows = true;
                     }
                 }
- public class EmailAlert: IAlerter
+            public class EmailAlert: IAlerter
                 {
                 public  bool emailSent;
                     public void Alert()
