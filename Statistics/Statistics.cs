@@ -19,39 +19,47 @@ namespace Statistics
         
          public interface IAlerter
     {
-        void LEDAlert();
-        void EmailAlert();
+       void  Alert();
     }
 
-    public class StatsAlerter: IAlerter
+    public class StatsAlerter 
     {
-       bool ledGlows;
-        bool emailSent;
-        public double maxThreshold;      
-        
-        public StatsAlerter(double MaxThreshold, IAlerter[] Alerters)
+        IAlerter[] alerters;
+        double MaxThresholds;
+        public StatsAlerter(double maxThresholds, IAlerter[] alerters)
         {
-            maxThreshold = MaxThreshold;
+            MaxThresholds = maxThresholds;
         }
-         public void LEDAlert()
-         {           
-                 ledGlows = true;
-         }
-         public void EmailAlert()
-         {            
-                emailSent = true;
-         } 
-        public double checkAndAlert(List<double> Allerts)
+
+
+        public void checkAndAlert(List<double> Allerts)
         {
-            if(Allerts.Max()>= maxThreshold) {
-                EmailAlert();
-                LEDAlert();
+            if (Allerts.Max() >= MaxThresholds)
+            {
+                LEDAlert lEDAlert = new LEDAlert();
+                lEDAlert.Alert();
+                EmailAlert emailAlert = new EmailAlert();
+                emailAlert.Alert();
             }
-                return Allerts.Max();         
         }
+      
     }
-        
-        
-        
-    }
+
+ public class LEDAlert: IAlerter
+                {
+                    public bool ledGlows;
+                    public void  Alert()
+                    {
+                        ledGlows = true;
+                    }
+                }
+ public class EmailAlert: IAlerter
+                {
+                public  bool emailSent;
+                    public void Alert()
+                    {
+                        emailSent = true;
+                    }
+                }
+ }
 }
