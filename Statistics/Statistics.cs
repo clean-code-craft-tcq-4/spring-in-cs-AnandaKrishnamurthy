@@ -34,7 +34,7 @@ namespace Statistics
 
         public void checkAndAlert(List<double> Allerts)
         {
-            if (MaxThresholds >= Allerts.Max())
+            if (Allerts.Max() >MaxThresholds )
             {
                 LEDAlert lEDAlert = new LEDAlert();
                 lEDAlert.Alert();
