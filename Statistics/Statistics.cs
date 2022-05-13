@@ -15,7 +15,7 @@ namespace Statistics
             return 0.0;
      }
         
-        
+     }   
         
          public interface IAlerter
     {
@@ -61,5 +61,5 @@ namespace Statistics
                         emailSent = true;
                     }
                 }
- }
+ 
 }
