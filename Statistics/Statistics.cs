@@ -36,7 +36,7 @@ namespace Statistics
        void  Alert();
     }
 
-    public class StatsAlerter 
+    public class StatsAlerter
     {
         IAlerter[] Alerters;
         double MaxThresholds;
