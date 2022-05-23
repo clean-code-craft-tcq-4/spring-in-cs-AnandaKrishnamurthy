@@ -41,6 +41,7 @@ namespace Statistics.Test
 
             Assert.True(emailAlert.emailSent);
             Assert.True(ledAlert.ledGlows);
+            
         }
     }
 }
